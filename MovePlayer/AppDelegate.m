@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import <VevoSDK_Internal/VevoSDK.h>
+
+#define VEVO_APP_CLIENT_ID_IPHONE       @"7295a757d2a74d2dbb6f691aed3cddbd"//@"FF7901F570F5467DB0B33BF08C045433"
+#define VEVO_APP_CLIENT_SECRET_IPHONE   @"d1e84fc46d3041ac9e35bc8969505de8"//@"0063E641BC7049C0AE46F232AA0636F5"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [VevoSDK checkAuthenticationWithClientId:VEVO_APP_CLIENT_ID_IPHONE secret:VEVO_APP_CLIENT_SECRET_IPHONE];
     return YES;
 }
 

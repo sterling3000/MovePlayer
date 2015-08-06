@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2B592141-16F9-424B-BDC7-2831F67982E2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MovePlayer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2326DD4D05931615F13FCA46C736896D5C86E4C3</key>
+		<string>https://github.com/VEVO/iOS_SDK.git</string>
+		<key>D2F4EFF9FBD0D258F14F4E08B214A7FC59AD84A8</key>
+		<string>https://github.com/sterling3000/MovePlayer.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MovePlayer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2326DD4D05931615F13FCA46C736896D5C86E4C3</key>
+		<string>../../../iOS_SDK</string>
+		<key>D2F4EFF9FBD0D258F14F4E08B214A7FC59AD84A8</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/sterling3000/MovePlayer.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D2F4EFF9FBD0D258F14F4E08B214A7FC59AD84A8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2326DD4D05931615F13FCA46C736896D5C86E4C3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>iOS_SDK</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D2F4EFF9FBD0D258F14F4E08B214A7FC59AD84A8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MovePlayer</string>
+		</dict>
+	</array>
+</dict>
+</plist>

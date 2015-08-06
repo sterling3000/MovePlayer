@@ -23,6 +23,9 @@
     // Override point for customization after application launch.
     
     [VevoSDK checkAuthenticationWithClientId:VEVO_APP_CLIENT_ID_IPHONE secret:VEVO_APP_CLIENT_SECRET_IPHONE];
+    
+    [VMSettings defaultSettings].disableFreeFheelAdVideoInTestBuild = YES;
+    
     return YES;
 }
 

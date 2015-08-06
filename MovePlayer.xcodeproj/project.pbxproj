@@ -46,6 +46,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2049DB8A1B733665002EB2A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2049DB821B733665002EB2A5 /* vevo-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6109FCEC1714B085005913F1;
+			remoteInfo = "vevo-ios-sdk";
+		};
+		2049DB8C1B733665002EB2A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2049DB821B733665002EB2A5 /* vevo-ios-sdk.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 31F04BB5180DC8E100AEE6B4;
+			remoteInfo = "vevo-ios-sdk_Tests";
+		};
 		2075A32C1B6B42BC0026768A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2075A30A1B6B42BC0026768A /* Project object */;
@@ -70,6 +84,7 @@
 		2049DB7C1B732A5E002EB2A5 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2049DB7E1B732FEF002EB2A5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2049DB801B733369002EB2A5 /* VevoSDK_Internal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VevoSDK_Internal.framework; sourceTree = "<group>"; };
+		2049DB821B733665002EB2A5 /* vevo-ios-sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "vevo-ios-sdk.xcodeproj"; path = "../iOS_SDK/VML/vevo-ios-sdk/vevo-ios-sdk.xcodeproj"; sourceTree = "<group>"; };
 		2075A3121B6B42BC0026768A /* MovePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2075A3161B6B42BC0026768A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2075A3171B6B42BC0026768A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,9 +183,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2049DB831B733665002EB2A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2049DB8B1B733665002EB2A5 /* libvevo-ios-sdk.a */,
+				2049DB8D1B733665002EB2A5 /* vevo-ios-sdk_Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		2075A3091B6B42BC0026768A = {
 			isa = PBXGroup;
 			children = (
+				2049DB821B733665002EB2A5 /* vevo-ios-sdk.xcodeproj */,
 				2049DB661B731C4D002EB2A5 /* Frameworks */,
 				2075A3141B6B42BC0026768A /* MovePlayer */,
 				2075A32E1B6B42BC0026768A /* MovePlayerTests */,
@@ -333,6 +358,12 @@
 			mainGroup = 2075A3091B6B42BC0026768A;
 			productRefGroup = 2075A3131B6B42BC0026768A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2049DB831B733665002EB2A5 /* Products */;
+					ProjectRef = 2049DB821B733665002EB2A5 /* vevo-ios-sdk.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2075A3111B6B42BC0026768A /* MovePlayer */,
@@ -340,6 +371,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2049DB8B1B733665002EB2A5 /* libvevo-ios-sdk.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libvevo-ios-sdk.a";
+			remoteRef = 2049DB8A1B733665002EB2A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2049DB8D1B733665002EB2A5 /* vevo-ios-sdk_Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "vevo-ios-sdk_Tests.xctest";
+			remoteRef = 2049DB8C1B733665002EB2A5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2075A3101B6B42BC0026768A /* Resources */ = {

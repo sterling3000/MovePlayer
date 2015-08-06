@@ -133,6 +133,12 @@
     return YES;
 }
 
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
 - (void)moveAround:(CGFloat)x
 {
     CGFloat xCenterRef = self.view.frame.size.width/2;
@@ -157,7 +163,7 @@
             self.player = [[VMMoviePlayerController alloc] initWithBaseView:self.playerBaseView];
             self.player.delegate = self;
             self.player.disableArtistVideos = YES;
-            self.player.controlStyle = VMMovieControlStyleFullscreen;
+            self.player.controlStyle = VMMovieControlStyleNone;
             self.player.hideDefaultCloseButton = YES;
             self.player.hideDefaultVevoLogo = YES;
             self.player.enableContinuousPlay = YES;

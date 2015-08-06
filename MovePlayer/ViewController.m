@@ -28,6 +28,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // Bypass the MUTE button of the device.
+    [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error:nil];
+    
+    
     CGFloat height = CGRectGetHeight(self.view.frame);
     CGFloat width = height*16./9;
     CGFloat x = CGRectGetWidth(self.view.frame)/2 - width/2;
@@ -63,6 +67,7 @@
                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
                                                //NSLog(@"New Device Motion data: %@", motion);
                                                
+                                               /*
                                                if (!initialAttitude)
                                                    initialAttitude = weakSelf.motionManager.deviceMotion.attitude;
                                                // translate the attitude
@@ -78,6 +83,9 @@
                                                    [self moveAround:magnitude];
                                                });
         
+                                                */
+                                               
+                                               
                                                
 //                                               // show the prompt
 //                                               if (!showingPrompt && (magnitude > showPromptTrigger)) {

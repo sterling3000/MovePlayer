@@ -54,8 +54,8 @@
     
     
     self.motionManager = [CMMotionManager new];
-//    self.motionManager.deviceMotionUpdateInterval = 1;
-//    self.motionManager.accelerometerUpdateInterval = 1;
+//    self.motionManager.deviceMotionUpdateInterval = .5;
+//    self.motionManager.accelerometerUpdateInterval = .5;
 //    self.motionManager.magnetometerUpdateInterval = 1;
 //    self.motionManager.gyroUpdateInterval = 1;
     
@@ -66,6 +66,18 @@
         [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue new]
                                            withHandler:^(CMDeviceMotion *motion, NSError *error) {
                                                //NSLog(@"New Device Motion data: %@", motion);
+                                               
+                                               //NSLog(@"x: %f, y: %f, z: %f", motion.userAcceleration.x, motion.userAcceleration.y, motion.userAcceleration.z);
+
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   
+                                                   
+                                                   
+                                                   [self moveAround:motion.attitude.yaw];
+                                                   
+                                                   //NSLog(@"x: %f", motion.magneticField.field.x);
+                                               });
+                                               
                                                
                                                /*
                                                if (!initialAttitude)
@@ -149,15 +161,21 @@
 
 - (void)moveAround:(CGFloat)x
 {
+    if (self.playerBaseView == nil)
+        return;
+    
+    
     CGFloat xCenterRef = self.view.frame.size.width/2;
     CGFloat xCenterMax = self.playerBaseView.frame.size.width/2;
     CGFloat xCenterMin = self.view.frame.size.width - self.playerBaseView.frame.size.width/2;
     
-    CGFloat xCenterNew = xCenterRef += x;
+    CGFloat xCenterNew = xCenterRef + x/M_PI * xCenterMax;
     xCenterNew = fmax(xCenterMin, xCenterNew);
     xCenterNew = fmin(xCenterMax, xCenterNew);
     
     self.playerBaseView.center = CGPointMake(xCenterNew, self.view.frame.size.height/2);
+    
+    NSLog(@"center: %f", xCenterNew);
 }
 
 
@@ -167,7 +185,7 @@
     
         if (success) {
             
-            self.playerBaseView = [[UIView alloc] initWithFrame:self.thumbnailView.bounds];
+            self.playerBaseView = [[UIView alloc] initWithFrame:self.thumbnailView.frame];
             self.player = [[VMMoviePlayerController alloc] initWithBaseView:self.playerBaseView];
             self.player.delegate = self;
             self.player.disableArtistVideos = YES;

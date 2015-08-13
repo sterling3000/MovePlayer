@@ -340,6 +340,7 @@
 				TargetAttributes = {
 					2075A3111B6B42BC0026768A = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = FGGMAL7Z46;
 					};
 					2075A32A1B6B42BC0026768A = {
 						CreatedOnToolsVersion = 6.4;
@@ -557,6 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Victoria Chavez (5Z7Y2VFKA5)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -577,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vevo LLC";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -587,6 +590,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ebcc6401-f1a0-4a17-9b0f-db53c1e32f49";
 			};
 			name = Release;
 		};

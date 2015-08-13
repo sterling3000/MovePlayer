@@ -49,18 +49,14 @@
     playButton.layer.cornerRadius = buttonImg.size.width;
     playButton.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     playButton.tintColor = [UIColor grayColor];
-    //[self.view addSubview:playButton];
-    //[playButton addTarget:self action:@selector(onButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
     
+
     
     self.motionManager = [CMMotionManager new];
-//    self.motionManager.deviceMotionUpdateInterval = .5;
-//    self.motionManager.accelerometerUpdateInterval = .5;
-//    self.motionManager.magnetometerUpdateInterval = 1;
-//    self.motionManager.gyroUpdateInterval = 1;
     
-    __block CMAttitude *initialAttitude = self.motionManager.deviceMotion.attitude;
-    __weak ViewController *weakSelf = self;
+    //__block CMAttitude *initialAttitude = self.motionManager.deviceMotion.attitude;
+    //__weak ViewController *weakSelf = self;
     BOOL canUseDeviceMotion = self.motionManager.deviceMotionAvailable;
     if (canUseDeviceMotion){
         [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue new]
@@ -73,7 +69,7 @@
                                                    
                                                    
                                                    
-                                                   [self moveAround:motion.attitude.yaw];
+                                                   [self moveAround:motion.attitude.roll ];
                                                    
                                                    //NSLog(@"x: %f", motion.magneticField.field.x);
                                                });
@@ -148,6 +144,7 @@
     [self loadAndPlayVideos:@"GB1101400818"];
 }
 
+
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
@@ -156,6 +153,16 @@
 - (NSUInteger)supportedInterfaceOrientations
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+
+- (void)onDoubleTapped:(UITapGestureRecognizer *)recognizer
+{
+    if (recognizer.state == UIGestureRecognizerStateRecognized) {
+        // Play next video
+        if (self.player)
+            [self.player playNextVideo];
+    }
 }
 
 
@@ -186,6 +193,12 @@
         if (success) {
             
             self.playerBaseView = [[UIView alloc] initWithFrame:self.thumbnailView.frame];
+            
+            // Add tap gesture
+            UISwipeGestureRecognizer *doubleTapGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTapped:)];
+            doubleTapGesture.direction = UISwipeGestureRecognizerDirectionUp;
+            [self.playerBaseView addGestureRecognizer:doubleTapGesture];
+            
             self.player = [[VMMoviePlayerController alloc] initWithBaseView:self.playerBaseView];
             self.player.delegate = self;
             self.player.disableArtistVideos = YES;
@@ -198,33 +211,12 @@
     }];
 }
 
-- (void)onButtonTapped:(id)sender
-{
-    if (self.player)
-        return;
-    
-    self.playerBaseView = [[UIView alloc] initWithFrame:self.thumbnailView.bounds];
-    self.player = [[VMMoviePlayerController alloc] initWithBaseView:self.playerBaseView];
-    self.player.delegate = self;
-    self.player.disableArtistVideos = YES;
-    self.player.controlStyle = VMMovieControlStyleEmbedded;
-    self.player.hideDefaultCloseButton = YES;
-    self.player.hideDefaultVevoLogo = YES;
-    self.player.enableContinuousPlay = YES;
-    
-    // Start playing the video
-    [self.player playVideoByISRC:@"GB1101400818"];
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-+ (double)magnitudeFromAttitude:(CMAttitude *)attitude {
-    return sqrt(pow(attitude.roll, 2.0f) + pow(attitude.yaw, 2.0f) + pow(attitude.pitch, 2.0f));
-}
 
 /**
  Called right before the movie player is about start playing a video.
